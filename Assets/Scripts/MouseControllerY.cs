@@ -11,6 +11,8 @@ public class MouseControllerY : MonoBehaviour {
 
     private float targetPos;
 
+    public GameObject panel;
+
     // Use this for initialization
     void Start()
     {
@@ -22,12 +24,20 @@ public class MouseControllerY : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
-        else if (Input.GetMouseButton(0))
+        if (!DragDrop.mouseDown)
         {
-            float pos = cam.ScreenToWorldPoint(Input.mousePosition).y - startPos.y;
-            targetPos = Mathf.Clamp(transform.position.y - pos, -2f, 32f);
+            if (!CreateSmallWall.mouseDown)
+            {
+                if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                else if (Input.GetMouseButton(0))
+                {
+                    float pos = cam.ScreenToWorldPoint(Input.mousePosition).y - startPos.y;
+                    targetPos = Mathf.Clamp(transform.position.y - pos, -2f, 32f);
+                }
+                transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, targetPos, speed * Time.deltaTime), transform.position.z);
+
+                panel.transform.position = new Vector3(panel.transform.position.x, transform.position.y, panel.transform.position.z);
+            }
         }
-        transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, targetPos, speed * Time.deltaTime), transform.position.z);
     }
 }

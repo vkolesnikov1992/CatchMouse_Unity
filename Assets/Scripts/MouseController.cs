@@ -8,12 +8,13 @@ public class MouseController : MonoBehaviour
     public float mouseSpeed = 5.0f;
     float speedX = 1.0f;
     private Rigidbody2D rb;
-    
+    private bool coll;
+    private bool collAir;
 
     // Use this for initialization
     void Start()
     {
-     //   rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
 
     }
 
@@ -35,7 +36,7 @@ public class MouseController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Wall")
+        if (collision.gameObject.name == "Wall" && !coll)
         {
             if (speedX > 0)
             {
@@ -51,19 +52,41 @@ public class MouseController : MonoBehaviour
 
             
         }
-         else if(collision.gameObject.name == "SmallWall")
+         else if(collision.gameObject.name == "SmallWall(Clone)")
           {
             
               transform.Translate(0f, 0.5f, 0);
 
              
           }
-          if(collision.gameObject.name == "WallUp" && collision.gameObject.name == "SmallWallUp")
+        
+          if(collision.gameObject.name == "Wall" && coll)
           {
             transform.Translate(0, 0.6f, 0);
             
           }
+          
+          if(collision.gameObject.name == "Spring")
+        {
+            rb.AddForce(new Vector2(0,10), ForceMode2D.Impulse);
+           
+        }
+        
+       
+        
       }
+
+    private bool OnCollisionEnter2D(Collision collision)
+    {
+        if (collision.gameObject.name == "SmallWall(Clone)" || collision.gameObject.name == "Air")
+        {
+            coll = true;
+        }
+        else coll = false;
+        return coll;
+
+        
+    }
 
    
 

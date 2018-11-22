@@ -11,21 +11,47 @@ public class CameraController : MonoBehaviour {
 
     private float targetPos;
 
-	// Use this for initialization
-	void Start () {
+    public GameObject panel;
+
+    
+    
+
+
+
+    // Use this for initialization
+    void Start () {
         cam = GetComponent<Camera>();
-        targetPos = transform.position.x;      
+        targetPos = transform.position.x;
+
+        
+         
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
-        else if (Input.GetMouseButton(0))
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (!DragDrop.mouseDown)
         {
-            float pos = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
-            targetPos = Mathf.Clamp(transform.position.x - pos, -2f, 32f);
+            if (!CreateSmallWall.mouseDown)
+            {
+                if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                else if (Input.GetMouseButton(0))
+                {
+                    float pos = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
+                    targetPos = Mathf.Clamp(transform.position.x - pos, -2f, 32f);
+                }
+                transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos, speed * Time.deltaTime), transform.position.y, transform.position.z);
+
+                if (!MovePanel.panelOpen)
+                {
+                    panel.transform.position = new Vector3(transform.position.x + 12.25f, panel.transform.position.y, panel.transform.position.z);
+                }
+                if (MovePanel.panelOpen)
+                {
+                    panel.transform.position = new Vector3(transform.position.x + 6.9f, panel.transform.position.y, panel.transform.position.z);
+                }
+            }
         }
-        transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos, speed * Time.deltaTime), transform.position.y, transform.position.z);
-	}
+    }
 }
