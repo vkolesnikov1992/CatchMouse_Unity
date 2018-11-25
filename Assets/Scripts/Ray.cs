@@ -28,12 +28,12 @@ public class Ray : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.6f), -Vector2.up, rayDistance);
         if (hit.collider != null)
         {
-            if (hit.collider.name == "Fun")
+            if (hit.collider.name == "Fan(Clone)")
             {
 
                 
                 
-                rb.AddForce(new Vector2(0, 15f), ForceMode2D.Force);
+                rb.AddForce(new Vector2(0, 14f), ForceMode2D.Force);
             }
             
 

@@ -28,15 +28,21 @@ public class MouseControllerY : MonoBehaviour {
         {
             if (!CreateSmallWall.mouseDown)
             {
-                if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
-                else if (Input.GetMouseButton(0))
+                if (!CreateFan.mouseDown)
                 {
-                    float pos = cam.ScreenToWorldPoint(Input.mousePosition).y - startPos.y;
-                    targetPos = Mathf.Clamp(transform.position.y - pos, -2f, 32f);
-                }
-                transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, targetPos, speed * Time.deltaTime), transform.position.z);
+                    if (!CreateSpring.mouseDown)
+                    {
+                        if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                        else if (Input.GetMouseButton(0))
+                        {
+                            float pos = cam.ScreenToWorldPoint(Input.mousePosition).y - startPos.y;
+                            targetPos = Mathf.Clamp(transform.position.y - pos, -2f, 32f);
+                        }
+                        transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, targetPos, speed * Time.deltaTime), transform.position.z);
 
-                panel.transform.position = new Vector3(panel.transform.position.x, transform.position.y, panel.transform.position.z);
+                        panel.transform.position = new Vector3(panel.transform.position.x, transform.position.y, panel.transform.position.z);
+                    }
+                }
             }
         }
     }

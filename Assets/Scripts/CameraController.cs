@@ -34,22 +34,29 @@ public class CameraController : MonoBehaviour {
         if (!DragDrop.mouseDown)
         {
             if (!CreateSmallWall.mouseDown)
-            {
-                if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
-                else if (Input.GetMouseButton(0))
-                {
-                    float pos = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
-                    targetPos = Mathf.Clamp(transform.position.x - pos, -2f, 32f);
-                }
-                transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos, speed * Time.deltaTime), transform.position.y, transform.position.z);
+            { 
+                if (!CreateFan.mouseDown)
+                { 
+                    if (!CreateSpring.mouseDown)                 
+ 
+                    {
+                                if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                                else if (Input.GetMouseButton(0))
+                                {
+                                    float pos = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
+                                    targetPos = Mathf.Clamp(transform.position.x - pos, -2f, 32f);
+                                }
+                                transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos, speed * Time.deltaTime), transform.position.y, transform.position.z);
 
-                if (!MovePanel.panelOpen)
-                {
-                    panel.transform.position = new Vector3(transform.position.x + 12.25f, panel.transform.position.y, panel.transform.position.z);
-                }
-                if (MovePanel.panelOpen)
-                {
-                    panel.transform.position = new Vector3(transform.position.x + 6.9f, panel.transform.position.y, panel.transform.position.z);
+                                if (!MovePanel.panelOpen)
+                                {
+                                    panel.transform.position = new Vector3(transform.position.x + 12.25f, panel.transform.position.y, panel.transform.position.z);
+                                }
+                                if (MovePanel.panelOpen)
+                                {
+                                    panel.transform.position = new Vector3(transform.position.x + 6.9f, panel.transform.position.y, panel.transform.position.z);
+                                }
+                    }
                 }
             }
         }

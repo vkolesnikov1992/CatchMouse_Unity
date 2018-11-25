@@ -23,7 +23,8 @@ public class MouseController : MonoBehaviour
     {
         if (speedX > 0)
         {
-            transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
+             transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
+            // rb.AddForce(new Vector2(5, 0),ForceMode2D.Force);
         }
         else if (speedX < 0)
         {
@@ -66,7 +67,7 @@ public class MouseController : MonoBehaviour
             
           }
           
-          if(collision.gameObject.name == "Spring")
+          if(collision.gameObject.name == "Spring(Clone)")
         {
             rb.AddForce(new Vector2(0,10), ForceMode2D.Impulse);
            
