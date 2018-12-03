@@ -10,6 +10,8 @@ public class MouseController : MonoBehaviour
     private Rigidbody2D rb;
     private bool coll;
     private bool collAir;
+    [SerializeField]
+    private float Impulse;
 
     // Use this for initialization
     void Start()
@@ -23,12 +25,16 @@ public class MouseController : MonoBehaviour
     {
         if (speedX > 0)
         {
-             transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
-            // rb.AddForce(new Vector2(5, 0),ForceMode2D.Force);
+            // transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
+            
+            rb.velocity = new Vector2(mouseSpeed * Time.deltaTime, 0);
+            
         }
         else if (speedX < 0)
         {
-            transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
+            // transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
+            rb.velocity = new Vector2(-mouseSpeed * Time.deltaTime, 0);
+           
         }
 
 
@@ -41,14 +47,14 @@ public class MouseController : MonoBehaviour
         {
             if (speedX > 0)
             {
-                // speedX = -1;
+                speedX = -1;
                 transform.Rotate(0, 180, 0);
             }
 
             else if (speedX < 0)
             {
                 speedX = 1;
-                transform.Rotate(0, 0, 0);
+                transform.Rotate(0, 180, 0);
             }
 
             
@@ -65,15 +71,9 @@ public class MouseController : MonoBehaviour
           {
             transform.Translate(0, 0.6f, 0);
             
-          }
-          
-          if(collision.gameObject.name == "Spring(Clone)")
-        {
-            rb.AddForce(new Vector2(0,10), ForceMode2D.Impulse);
-           
-        }
-        
+          }        
        
+              
         
       }
 

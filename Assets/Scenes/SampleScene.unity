@@ -522,6 +522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSpeed: 1
+  Impulse: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -671,7 +672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ff1f48e5f75834eb0a25eae3fb5d26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spring: {fileID: 1171243862652894, guid: 21614cea2d4c05d47a7d313c4ac05ce6, type: 2}
+  Spring: {fileID: 1776810835590900, guid: 21614cea2d4c05d47a7d313c4ac05ce6, type: 2}
 --- !u!61 &931359470
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -904,7 +905,7 @@ Transform:
   - {fileID: 971992009}
   - {fileID: 2050813200}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1318996543
 MonoBehaviour:
@@ -1163,7 +1164,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1820843773
 MonoBehaviour:
@@ -1188,7 +1189,6 @@ GameObject:
   - component: {fileID: 1879461530}
   - component: {fileID: 1879461532}
   - component: {fileID: 1879461531}
-  - component: {fileID: 1879461533}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -1280,26 +1280,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &1879461533
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1879461529}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1930272242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,7 +1311,7 @@ Transform:
   - {fileID: 335308113}
   - {fileID: 2077677873}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2013522965
 GameObject:
@@ -1344,8 +1324,8 @@ GameObject:
   - component: {fileID: 2013522968}
   - component: {fileID: 2013522966}
   - component: {fileID: 2013522970}
-  - component: {fileID: 2013522967}
   - component: {fileID: 2013522971}
+  - component: {fileID: 2013522967}
   m_Layer: 0
   m_Name: mouse
   m_TagString: mouse
@@ -1364,10 +1344,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 15
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1385,8 +1365,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.18524095, y: -0.07639487}
-  m_Size: {x: 1.3858585, y: 3.2563152}
+  m_Offset: {x: -0.11613766, y: -0.22307038}
+  m_Size: {x: 1.183225, y: 3.3494217}
   m_Direction: 0
 --- !u!212 &2013522968
 SpriteRenderer:
@@ -1445,7 +1425,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2013522970
 MonoBehaviour:
@@ -1458,7 +1438,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45570bd7def44347a59e443e239be78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSpeed: 2
+  mouseSpeed: 120
+  Impulse: 0
 --- !u!114 &2013522971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,6 +1452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rayDistance: 7
+  ForceFun: 120
 --- !u!1 &2035377922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,7 +1566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4f6fe2f4c90d3b4eb93723e6b996402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Fun: {fileID: 1973757500993320, guid: 9d940c317ce4ed746bdbfb6b883f8104, type: 2}
+  Fun: {fileID: 1661153445692936, guid: 9d940c317ce4ed746bdbfb6b883f8104, type: 2}
 --- !u!1 &2050813199
 GameObject:
   m_ObjectHideFlags: 0

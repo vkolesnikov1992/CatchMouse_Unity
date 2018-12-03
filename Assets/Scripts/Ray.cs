@@ -6,8 +6,10 @@ public class Ray : MonoBehaviour
 {
 
     public float rayDistance;
-   // private Ray2D ray;
+    // private Ray2D ray;
     private RaycastHit raycast;
+    [SerializeField]
+    private float ForceFun;
     
     private Rigidbody2D rb;
 
@@ -33,11 +35,9 @@ public class Ray : MonoBehaviour
 
                 
                 
-                rb.AddForce(new Vector2(0, 14f), ForceMode2D.Force);
-            }
-            
+                rb.AddForce(new Vector2(0, ForceFun), ForceMode2D.Force);
+            }                  
 
-          
         }
     }
     
