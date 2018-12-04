@@ -5,13 +5,12 @@ using UnityEngine;
 public class MouseController : MonoBehaviour
 {
 
-    public float mouseSpeed = 5.0f;
-    float speedX = 1.0f;
+    private float mouseSpeed = 3.0f;    
     private Rigidbody2D rb;
     private bool coll;
-    private bool collAir;
-    [SerializeField]
-    private float Impulse;
+    public static bool isRightMove = true;
+    public static bool IsMovingMouse = true;
+  
 
     // Use this for initialization
     void Start()
@@ -21,23 +20,25 @@ public class MouseController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (speedX > 0)
+        if (IsMovingMouse)
         {
-            // transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
-            
-            rb.velocity = new Vector2(mouseSpeed * Time.deltaTime, 0);
-            
-        }
-        else if (speedX < 0)
-        {
-            // transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
-            rb.velocity = new Vector2(-mouseSpeed * Time.deltaTime, 0);
-           
-        }
+            if (isRightMove)
+            {
+                // transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
 
+                rb.velocity = new Vector2(mouseSpeed, 0);
 
+            }
+            else if (!isRightMove)
+            {
+                // transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
+                rb.velocity = new Vector2(-mouseSpeed, 0);
+
+            }
+
+        }
 
     }
 
@@ -45,15 +46,15 @@ public class MouseController : MonoBehaviour
     {
         if (collision.gameObject.name == "Wall" && !coll)
         {
-            if (speedX > 0)
+            if (isRightMove)
             {
-                speedX = -1;
+                isRightMove = false;
                 transform.Rotate(0, 180, 0);
             }
 
-            else if (speedX < 0)
+            else if (!isRightMove)
             {
-                speedX = 1;
+                isRightMove = true;
                 transform.Rotate(0, 180, 0);
             }
 
