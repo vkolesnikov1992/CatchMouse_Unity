@@ -13,6 +13,11 @@ public class MouseControllerY : MonoBehaviour {
 
     public GameObject panel;
 
+    [SerializeField]
+    private float yPosDown;
+    [SerializeField]
+    private float yPosUp;
+
     // Use this for initialization
     void Start()
     {
@@ -36,7 +41,7 @@ public class MouseControllerY : MonoBehaviour {
                         else if (Input.GetMouseButton(0))
                         {
                             float pos = cam.ScreenToWorldPoint(Input.mousePosition).y - startPos.y;
-                            targetPos = Mathf.Clamp(transform.position.y - pos, -2f, 32f);
+                            targetPos = Mathf.Clamp(transform.position.y - pos, yPosDown, yPosUp);
                         }
                         transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, targetPos, speed * Time.deltaTime), transform.position.z);
 

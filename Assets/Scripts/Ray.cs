@@ -6,7 +6,7 @@ public class Ray : MonoBehaviour
 {
 
     public float rayDistance;
-    // private Ray2D ray;
+   // private Ray2D ray;
     private RaycastHit raycast;
     [SerializeField]
     private float ForceFun;
@@ -19,17 +19,18 @@ public class Ray : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
-        /*
-        ray = new Ray2D(new Vector2(transform.position.x, transform.position.y), -transform.up);
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 0.6f), ray.direction * rayDistance);
-        */
+        
+       // ray = new Ray2D(new Vector2(transform.position.x, transform.position.y), -transform.up);
+      //  Debug.DrawRay(new Vector2(transform.position.x - 0.4f, transform.position.y - 0.6f), ray.direction * rayDistance);
+        
         
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.6f), -Vector2.up, rayDistance);
         if (hit.collider != null)
         {
+
             if (hit.collider.name == "Fan(Clone)")
             {
 
@@ -38,7 +39,7 @@ public class Ray : MonoBehaviour
                 rb.AddForce(new Vector2(0, ForceFun), ForceMode2D.Force);
             }                  
 
-        }
+        }      
     }
     
 }

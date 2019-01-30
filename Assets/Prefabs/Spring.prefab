@@ -127,7 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 664cdfc2ae9539b43a2a485e19b3d41b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  JumpForse: 8
+  JumpForse: 10
+  JumpDirections: 4
 --- !u!212 &212538514380842658
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -13,6 +13,11 @@ public class CameraController : MonoBehaviour {
 
     public GameObject panel;
 
+    [SerializeField]
+    private float xPosRight;
+    [SerializeField]
+    private float xPosLeft;
+
     
     
 
@@ -44,7 +49,7 @@ public class CameraController : MonoBehaviour {
                                 else if (Input.GetMouseButton(0))
                                 {
                                     float pos = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
-                                    targetPos = Mathf.Clamp(transform.position.x - pos, -2f, 32f);
+                                    targetPos = Mathf.Clamp(transform.position.x - pos, xPosLeft, xPosRight);
                                 }
                                 transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos, speed * Time.deltaTime), transform.position.y, transform.position.z);
 

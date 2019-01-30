@@ -8,6 +8,8 @@ TagManager:
   - walls
   - OrangePortal
   - BluePortal
+  - SmallWall
+  - Ground
   layers:
   - Default
   - TransparentFX

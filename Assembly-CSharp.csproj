@@ -66,12 +66,14 @@
     <Compile Include="Assets\Scripts\CreateSmallWall.cs" />
     <Compile Include="Assets\Scripts\CreateSpring.cs" />
     <Compile Include="Assets\Scripts\DragDrop.cs" />
+    <Compile Include="Assets\Scripts\LittleMouse.cs" />
     <Compile Include="Assets\Scripts\MouseController.cs" />
     <Compile Include="Assets\Scripts\MouseControllerY.cs" />
     <Compile Include="Assets\Scripts\MovePanel.cs" />
     <Compile Include="Assets\Scripts\Portal.cs" />
     <Compile Include="Assets\Scripts\Ray.cs" />
     <Compile Include="Assets\Scripts\SpringImpulse.cs" />
+    <None Include="Assets\BayatGames\Free Platform Game Assets\Readme.txt" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/MrGoodwin/Documents/Catch Mouse/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
