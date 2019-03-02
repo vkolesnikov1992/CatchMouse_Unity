@@ -10,6 +10,8 @@ public class MouseController : MonoBehaviour
    // private bool coll;
     public static bool isRightMove = true;
     public static bool IsMovingMouse;
+
+    
   
 
     // Use this for initialization
@@ -22,27 +24,24 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.Log(IsMovingMouse);
+        
         if (IsMovingMouse)
         {
-            if (isRightMove)
-            {
-                // transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
+                if (isRightMove)
+                {
+                    rb.velocity = new Vector2(mouseSpeed, 0);
 
-                rb.velocity = transform.right * mouseSpeed;
+                }
+                else if (!isRightMove)
+                {
 
-            }
-            else if (!isRightMove)
-            {
-                // transform.Translate(mouseSpeed * Time.deltaTime * speedX, 0, 0);
-                rb.velocity = -transform.right * mouseSpeed;
+                    rb.velocity = new Vector2(-mouseSpeed, 0);
+                }
 
-            }
-
-        } 
+        }
         
     }
-
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "walls")
@@ -59,10 +58,11 @@ public class MouseController : MonoBehaviour
                 transform.Rotate(0, 180, 0);
             }
            
-        }        
+        }
+        
        
     }
-
+    
     private void OnCollisionStay2D(Collision2D collision)
     {
         //IsMovingMouse = true;
@@ -78,4 +78,5 @@ public class MouseController : MonoBehaviour
             IsMovingMouse = false;
         
     }
+    
 }
