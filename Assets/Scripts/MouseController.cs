@@ -10,6 +10,8 @@ public class MouseController : MonoBehaviour
    // private bool coll;
     public static bool isRightMove = true;
     public static bool IsMovingMouse;
+    public ParticleSystem particle;
+   
 
     
   
@@ -58,9 +60,17 @@ public class MouseController : MonoBehaviour
                 transform.Rotate(0, 180, 0);
             }
            
+            
         }
-        
-       
+
+        if (collision.gameObject.name == "Saw")
+        {
+            
+            Instantiate(particle, transform.position, Quaternion.identity);            
+            gameObject.SetActive(false);
+        }
+
+
     }
     
     private void OnCollisionStay2D(Collision2D collision)
@@ -78,5 +88,17 @@ public class MouseController : MonoBehaviour
             IsMovingMouse = false;
         
     }
-    
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "coin")
+        {
+            GetComponent<AudioSource>().Play();
+        }
+
+        
+    }
+
+
+
 }

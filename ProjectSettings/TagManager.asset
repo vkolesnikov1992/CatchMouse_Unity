@@ -12,6 +12,12 @@ TagManager:
   - Ground
   - Fan
   - PhantomSmallWall
+  - PhantomSpring
+  - PhantomFan
+  - PhantomSwitch
+  - Coin0
+  - coin
+  - EndLevel
   layers:
   - Default
   - TransparentFX
@@ -44,7 +50,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - UI
   m_SortingLayers:
   - name: Default
     uniqueID: 0

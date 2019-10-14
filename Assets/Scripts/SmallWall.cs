@@ -29,7 +29,7 @@ public class SmallWall : MonoBehaviour
 
                 // collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(-JumpDirections, JumpForse), ForceMode2D.Impulse);
 
-                Debug.Log("done");
+             
             }
             else
             {

@@ -11,7 +11,7 @@ public class CameraController : MonoBehaviour {
 
     private float targetPos;
 
-    public GameObject panel;
+   // public GameObject panel;
 
     [SerializeField]
     private float xPosRight;
@@ -21,8 +21,8 @@ public class CameraController : MonoBehaviour {
     Vector3 touchStart;
     public float zoomOutMin = 1;
     public float zoomOutMax = 8;
-
-
+    private Transform Player;
+    
 
 
 
@@ -31,43 +31,41 @@ public class CameraController : MonoBehaviour {
     void Start () {
         cam = GetComponent<Camera>();
         targetPos = transform.position.x;
+        Player = GameObject.FindGameObjectWithTag("mouse").GetComponent<Transform>();
 
-        
-         
-		
-	}
+
+
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if (!DragDrop.mouseDown)
+        if (!StartGame.GameStarted)
         {
-            if (!CreateSmallWall.mouseDown)
+
+
+            if (!CreateSwitch.mouseDown)
             {
-                if (!CreateFan.mouseDown)
+                if (!DragDrop.mouseDown)
                 {
-                    if (!CreateSpring.mouseDown)
-
+                    if (!CreateSmallWall.mouseDown)
                     {
-                        if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
-                        else if (Input.GetMouseButton(0))
+                        if (!CreateFan.mouseDown)
                         {
-                            float pos = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
-                            targetPos = Mathf.Clamp(transform.position.x - pos, xPosLeft, xPosRight);
+                            if (!CreateSpring.mouseDown)
+
+                            {
+                                if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                                else if (Input.GetMouseButton(0))
+                                {
+                                    float pos = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
+                                    targetPos = Mathf.Clamp(transform.position.x - pos, xPosLeft, xPosRight);
+                                }
+                                transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos, speed * Time.deltaTime), transform.position.y, transform.position.z);
+
+
+                            }
                         }
-                        transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos, speed * Time.deltaTime), transform.position.y, transform.position.z);
-
-                        if (!MovePanel.panelOpen)
-                        {
-                            panel.transform.position = new Vector3(transform.position.x + 12.25f, panel.transform.position.y, panel.transform.position.z);
-                        }
-                        if (MovePanel.panelOpen)
-                        {
-                            panel.transform.position = new Vector3(transform.position.x + 6.9f, panel.transform.position.y, panel.transform.position.z);
-                        }                     
-
-
-
                     }
                 }
             }
@@ -90,6 +88,11 @@ public class CameraController : MonoBehaviour {
         }
         
         zoom(Input.GetAxis("Mouse ScrollWheel"));
+
+        if (StartGame.GameStarted)
+        {
+            transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 4, transform.position.z);
+        }
 
     }
     void zoom(float increment)

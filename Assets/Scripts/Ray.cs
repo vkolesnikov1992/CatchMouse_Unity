@@ -23,35 +23,35 @@ public class Ray : MonoBehaviour
     }
 
     //Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         ray = new Ray2D(new Vector2(transform.position.x, transform.position.y), -Vector2.up);
-        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 0.54f), ray.direction * 7);
+        Debug.DrawRay(new Vector2(transform.position.x, transform.position.y - 0.62f), ray.direction * 7);
         
         
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.54f), -Vector2.up, rayDistance);
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.62f), -Vector2.up, rayDistance);
         if (hit.collider != null)
         {
 
             if (hit.collider.tag == "Fan" && MouseController.isRightMove)
             {              
               
-                rb.AddForce(new Vector2(DirectionFun, ForceFun), ForceMode2D.Force);
+                rb.AddForce(Vector2.up * ForceFun, ForceMode2D.Force);
                 
             }
             
             else if (hit.collider.tag == "Fan" && !MouseController.isRightMove)
             {
-                rb.AddForce(new Vector2(-DirectionFun, ForceFun), ForceMode2D.Force);
-                
+                rb.AddForce(Vector2.up * ForceFun, ForceMode2D.Force);
+
             }
 
         }
 
-        RaycastHit2D hitSmallWallRight = Physics2D.Raycast(new Vector2(transform.position.x + 0.3f, transform.position.y - 0.4f), Vector2.right, 0.3f);     
-        RaycastHit2D hitSmallWallLeft = Physics2D.Raycast(new Vector2(transform.position.x - 0.3f, transform.position.y - 0.4f), -Vector2.right, 0.3f);
-        RaycastHit2D hitSmallWallDown = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.55f), -Vector2.up, 3f);
+        RaycastHit2D hitSmallWallRight = Physics2D.Raycast(new Vector2(transform.position.x + 0.4f, transform.position.y - 0.45f), Vector2.right, 0.3f);     
+        RaycastHit2D hitSmallWallLeft = Physics2D.Raycast(new Vector2(transform.position.x - 0.4f, transform.position.y - 0.45f), -Vector2.right, 0.3f);
+        RaycastHit2D hitSmallWallDown = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.6f), -Vector2.up, 3f);
 
         if(hitSmallWallRight.collider != null)
         {
