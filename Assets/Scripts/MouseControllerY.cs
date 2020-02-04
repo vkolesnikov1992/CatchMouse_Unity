@@ -32,16 +32,10 @@ public class MouseControllerY : MonoBehaviour {
         if (!StartGame.GameStarted)
         {
 
-            if (!CreateSwitch.mouseDown)
-            {
-                if (!DragDrop.mouseDown)
-                {
-                    if (!CreateSmallWall.mouseDown)
+            
+                    if (!GameController.MouseDown)
                     {
-                        if (!CreateFan.mouseDown)
-                        {
-                            if (!CreateSpring.mouseDown)
-                            {
+                       
                                 if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
                                 else if (Input.GetMouseButton(0))
                                 {
@@ -50,12 +44,10 @@ public class MouseControllerY : MonoBehaviour {
                                 }
                                 transform.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, targetPos, speed * Time.deltaTime), transform.position.z);
 
-                                // panel.transform.position = new Vector3(panel.transform.position.x, transform.position.y, panel.transform.position.z);
-                            }
-                        }
+
                     }
-                }
-            }
+               
+            
         }
     }
 }

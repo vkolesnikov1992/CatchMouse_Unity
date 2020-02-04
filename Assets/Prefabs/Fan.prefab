@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 50780725807421542}
   - component: {fileID: 58413974640724004}
   - component: {fileID: 61905406052080456}
-  - component: {fileID: 6279566938595684969}
+  - component: {fileID: 3199415167515389289}
   m_Layer: 0
   m_Name: Fan
   m_TagString: Fan
@@ -179,7 +179,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2065239, y: 0.015588462}
   m_EdgeRadius: 0
---- !u!114 &6279566938595684969
+--- !u!114 &3199415167515389289
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,6 +188,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1225179207377268}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed4a2a0b28399a54c9e31c3c0ebbc1d2, type: 3}
+  m_Script: {fileID: 11500000, guid: bff8777e1a8fc024b96ce5feb39a353a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

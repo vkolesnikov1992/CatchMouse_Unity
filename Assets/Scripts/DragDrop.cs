@@ -5,8 +5,7 @@ using UnityEngine;
 public class DragDrop : MonoBehaviour {
 
     public static bool GameStarted;
-
-    public static bool mouseDown = false;
+    
 
     private Vector3 offset;
 
@@ -16,7 +15,7 @@ public class DragDrop : MonoBehaviour {
         {
             offset = gameObject.transform.position -
             Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
-            mouseDown = true;
+            GameController.MouseDown = true;
         }
         
     }
@@ -38,7 +37,7 @@ public class DragDrop : MonoBehaviour {
     {
         if (!GameStarted)
         {
-            mouseDown = false;
+            GameController.MouseDown = false;
         }
         
 

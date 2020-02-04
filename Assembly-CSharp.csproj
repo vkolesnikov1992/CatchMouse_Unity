@@ -64,13 +64,11 @@
     <Compile Include="Assets\Scripts\Buttons.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Coin.cs" />
-    <Compile Include="Assets\Scripts\CreateFan.cs" />
-    <Compile Include="Assets\Scripts\CreateSmallWall.cs" />
-    <Compile Include="Assets\Scripts\CreateSpring.cs" />
-    <Compile Include="Assets\Scripts\CreateSwitch.cs" />
+    <Compile Include="Assets\Scripts\CreateObj.cs" />
     <Compile Include="Assets\Scripts\DragDrop.cs" />
     <Compile Include="Assets\Scripts\EndGame.cs" />
     <Compile Include="Assets\Scripts\Fan.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Scripts\LevelManager.cs" />
     <Compile Include="Assets\Scripts\LittleMouse.cs" />
     <Compile Include="Assets\Scripts\LvlManager.cs" />
@@ -79,10 +77,6 @@
     <Compile Include="Assets\Scripts\MovePanel.cs" />
     <Compile Include="Assets\Scripts\NextLevel.cs" />
     <Compile Include="Assets\Scripts\Phantom.cs" />
-    <Compile Include="Assets\Scripts\PhantomFan.cs" />
-    <Compile Include="Assets\Scripts\PhantomSpring.cs" />
-    <Compile Include="Assets\Scripts\PhantomSwitch.cs" />
-    <Compile Include="Assets\Scripts\Portal.cs" />
     <Compile Include="Assets\Scripts\Ray.cs" />
     <Compile Include="Assets\Scripts\RePlay.cs" />
     <Compile Include="Assets\Scripts\Saw.cs" />

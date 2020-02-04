@@ -42,33 +42,19 @@ public class CameraController : MonoBehaviour {
     {
         if (!StartGame.GameStarted)
         {
-
-
-            if (!CreateSwitch.mouseDown)
-            {
-                if (!DragDrop.mouseDown)
-                {
-                    if (!CreateSmallWall.mouseDown)
+                    if (!GameController.MouseDown)
                     {
-                        if (!CreateFan.mouseDown)
-                        {
-                            if (!CreateSpring.mouseDown)
-
+                        if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                            else if (Input.GetMouseButton(0))
                             {
-                                if (Input.GetMouseButtonDown(0)) startPos = cam.ScreenToWorldPoint(Input.mousePosition);
-                                else if (Input.GetMouseButton(0))
-                                {
-                                    float pos = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
-                                    targetPos = Mathf.Clamp(transform.position.x - pos, xPosLeft, xPosRight);
-                                }
+                                float pos = cam.ScreenToWorldPoint(Input.mousePosition).x - startPos.x;
+                                targetPos = Mathf.Clamp(transform.position.x - pos, xPosLeft, xPosRight);
+                            }
                                 transform.position = new Vector3(Mathf.Lerp(transform.position.x, targetPos, speed * Time.deltaTime), transform.position.y, transform.position.z);
 
-
-                            }
-                        }
                     }
-                }
-            }
+               
+            
         }
         
         if (Input.touchCount == 2)

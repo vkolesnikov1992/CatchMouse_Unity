@@ -18,6 +18,10 @@ TagManager:
   - Coin0
   - coin
   - EndLevel
+  - PhantomSmallWall(Clone)
+  - PhantomSwitch(Clone)
+  - PhantomFan(Clone)
+  - PhantomSpring(Clone)
   layers:
   - Default
   - TransparentFX

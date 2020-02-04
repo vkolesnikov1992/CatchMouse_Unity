@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 50203026771110634}
   - component: {fileID: 114845179188100808}
   - component: {fileID: 114619331505144450}
-  - component: {fileID: 7071291119950882128}
+  - component: {fileID: 2489146840802771349}
   m_Layer: 0
   m_Name: Spring
   m_TagString: Untagged
@@ -176,7 +176,7 @@ MonoBehaviour:
   JumpDirections: 100
   sprite: {fileID: 21300000, guid: 458853a7cec94834ea509406036fde9f, type: 3}
   sprite2: {fileID: 21300000, guid: b80a4590da6a64540889b986f87f1af1, type: 3}
---- !u!114 &7071291119950882128
+--- !u!114 &2489146840802771349
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -185,6 +185,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1420795736618558}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea8df997b1c86144bec435637c73e1d, type: 3}
+  m_Script: {fileID: 11500000, guid: bff8777e1a8fc024b96ce5feb39a353a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
